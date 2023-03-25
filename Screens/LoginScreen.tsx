@@ -61,13 +61,13 @@ const LoginScreen:({navigation,route})=>Node=({navigation,route})=>{
     return(    
     <SafeAreaView >
 
-    <Section title="Shopping App Sourc3" children={undefined}>
+    <Section title="Shopping App Sourc3" >
         Amazon's fog bestseller 2023
       </Section>
       <View style={{alignItems: 'center'}}>
       <Image source={image} style={{ width: 200, height: 200}}/>
       </View>
-      <Section title="Login or Sign up" children={undefined}>
+      <Section title="Login or Sign up" >
       </Section>
 
         <View  style={styles.Button}>

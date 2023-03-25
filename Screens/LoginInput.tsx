@@ -2,6 +2,9 @@ import React from 'react';
 import type {Node} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {auth} from '../config/firebase';
+import {createUserWithEmailAndPassword} from "firebase/auth";
+import { useState } from 'react';
 import {
     SafeAreaView,
     ScrollView,
@@ -17,14 +20,24 @@ import {
   } from 'react-native';
 
   const LoginInput:({navigation,route})=>Node=({navigation,route})=>{
+    
+    const [ email,setEmail]=useState("");
+    const [ password,setPassword]=useState("");
+
+
+    const SignIn=async ()=>{
+        await createUserWithEmailAndPassword(auth,email,password);
+
+
+    };
     return(
     <SafeAreaView>
     <View style={styles.InputBox}>
-    <TextInput placeholder="Username"style={styles.input}/>
+    <TextInput placeholder="Username"style={styles.input} onChange={(e)=>setEmail(e.target.value)}    />
     </View>
 
     <View style={styles.InputBox}>
-    <TextInput placeholder="Password" style={styles.input}/>
+    <TextInput placeholder="Password" style={styles.input} onChange={(e)=>setPassword(e.target.value)}/>
     </View>
     <View style={styles.Button}> 
     <Button title="Login" color='pink'
@@ -34,7 +47,9 @@ import {
     <View style={styles.Button}> 
     <Button title="Guest Login" color='maroon'
     onPress={() =>
-        navigation.navigate('MainMenu')}/>
+        SignIn()}
+        // navigation.navigate('MainMenu')}
+        />
     </View>
     </SafeAreaView>
   );};
