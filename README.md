@@ -3,6 +3,7 @@
 Aplikaciju mozemo pokrenuti nakon sto kolniramo Repository tako sto uradimo npm install, potrebno je koristit node verziju ....
 
 Nakon sto uradimo npm install trebamo pokrenuti server sa npm start i svoj emulator u drugom terminalu sa npm start android komandom.
+Dodatno jedan od načina pokretanja koda jeste  preko Android Studio aplikacije. Simuliramo ili preko USB-a povezujemo telefon sa računarom te u terminalu dok se nalazimo u direktoriju sa android file-ovima koristimo komandu npx react-native run-android.
 
 
 ## Funkcionalnosti Aplikacije
@@ -16,3 +17,4 @@ Cart mozemo vidjeti sve proizvode koje smo odlucili kupiti, koliko oni zajedno k
 svoju kupovinu.
 
 Prilikom odabira da li zelimo kupovati ili prodavati iteme mozemo odabrait 
+
