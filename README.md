@@ -17,4 +17,5 @@ Cart mozemo vidjeti sve proizvode koje smo odlucili kupiti, koliko oni zajedno k
 svoju kupovinu.
 
 Prilikom odabira da li zelimo kupovati ili prodavati iteme mozemo odabrait 
-
+## Napomena
+U zadnjim radovima na aplikaciji stvoren je drugi direktorij za slikom pod imenom images dok je uporedno postojao Images. Uzimajući u obzir da je linux case sensitive a windows nije svaki path  i sve slike su prebacene u Images ali je folder pod imenom images ostavljen iz sigurnosti.
