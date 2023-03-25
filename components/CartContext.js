@@ -30,8 +30,12 @@ export function CartProvider(props) {
                 })
             }
         })
-
     }
+
+    function clearCart(){
+        setItems([]);
+    }
+
     function getItemsCount() {
         //what is sum???
         return items.reduce((sum, item) => (sum + item.qty), 0);
@@ -41,7 +45,7 @@ export function CartProvider(props) {
     }
 
     return (
-        <cartContext.Provider value={{items, getItemsCount, addItemToCart, getTotalPrice }}>
+        <cartContext.Provider value={{items,clearCart, getItemsCount, addItemToCart, getTotalPrice }}>
             {props.children}
         </cartContext.Provider>
 

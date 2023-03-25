@@ -1,6 +1,6 @@
 import React, { useState, ReactElement, useEffect,useContext } from 'react';
 // import { SafeAreaView, Text, Image, View } from 'react-native-safe-area-context';
-import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
+import { Alert, View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
@@ -8,7 +8,7 @@ import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import ProductsList from './ProductsList';
 import { getProduct } from './ProductsList';
 import { cartContext } from '../components/CartContext';
-
+import CustomerSupport from './CustomerSupport';
 
 
 
@@ -28,6 +28,7 @@ const ProductDetails = ({ navigation, route }) => {
 
     function onAddToCart(){
         addItemToCart(productId);
+        Alert.alert('Added item to cart')
     }
     return (
         <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
@@ -43,7 +44,7 @@ const ProductDetails = ({ navigation, route }) => {
                 <View style={styles.otherContainer}>
                     <Text style={styles.price}>Reviews</Text>
                     <Text style={styles.wrperText}>{product.review}</Text>
-                    <TouchableOpacity>
+                    <TouchableOpacity onPress={() => { navigation.navigate('CustomerSupport')}} >
                         <View style={styles.addWrapper}>
                             <Text style={styles.wrperText}>+</Text>
                         </View>
