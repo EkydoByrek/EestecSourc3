@@ -1,37 +1,90 @@
-import 'react-native-gesture-handler';
-import React, { useEffect, useState } from 'react'
-import { NavigationContainer } from '@react-navigation/native'
-import { createStackNavigator } from '@react-navigation/stack';
-import { LoginScreen,HomeScreen,RegistrationScreen} from './screens/';
-import { ProductsList } from './screens/Products/ProductsList';
-import { ProductDetails } from './screens/Products/ProductDetails';
-// import {decode, encode} from 'base-64'
-// if (!global.btoa) {  global.btoa = encode }
-// if (!global.atob) { global.atob = decode }
+import React from 'react';
+import type {Node} from 'react';
+import {
+  SafeAreaView,
+  ScrollView,
+  StatusBar,
+  StyleSheet,
+  Text,
+  useColorScheme,
+  View,
+} from 'react-native';
 
-const Stack = createStackNavigator();
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import {
+  Colors,
+  DebugInstructions,
+  Header,
+  LearnMoreLinks,
+  ReloadInstructions,
+} from 'react-native/Libraries/NewAppScreen';
 
-export default function App() {
+import LoginScreen from './Screens/LoginScreen';
+import LoginInput from './Screens/LoginInput';
+import MainMenu from './Screens/MainMenu';
+import SignUp from './Screens/SignUp';
+import CustomerSupport from './Screens/CustomerSupport';
+import ProductDetails from './Screens/ProductDetails';
+import ProductsList from './Screens/ProductsList';
 
-  const [loading, setLoading] = useState(true)
-  const [user, setUser] = useState(null)
+const Stack = createNativeStackNavigator();
+
+const App: () => Node = () => {
+
 
   return (
-    // <ProductDetails></ProductDetails>
-    <ProductsList></ProductsList>
-    // <NavigationContainer>
-    //   <Stack.Navigator>
-    //     { user ? (
-    //       <Stack.Screen name="Home">
-    //         {props => <HomeScreen {...props} extraData={user} />}
-    //       </Stack.Screen>
-    //     ) : (
-    //       <>
-    //         <Stack.Screen name="Login" component={LoginScreen} />
-    //         <Stack.Screen name="Registration" component={ProductsList} />
-    //       </>
-    //     )}
-    //   </Stack.Navigator>
-    // </NavigationContainer>
+    <NavigationContainer> 
+      <Stack.Navigator>
+        <Stack.Screen
+        name='LoginScreen'
+        component={LoginScreen}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen 
+        name='LoginInput'
+        component={LoginInput}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen 
+        name='MainMenu'
+        component={MainMenu}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='SignUp'
+        component={SignUp}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='CustomerSupport'
+        component={CustomerSupport}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='ProductDetails'
+        component={ProductDetails}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='ProductsList'
+        component={ProductsList}
+        options={{ headerTitle: '' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
-}
+  
+};
+
+/*const FrontPage:()=>Node=({navigation})=>{
+  return(
+  <SafeAreaView style={backgroundStyle}>
+  <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+  <ScrollView
+    contentInsetAdjustmentBehavior="automatic"
+    style={backgroundStyle}>
+    <View
+      style={{
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      }}>
+    </View>
+  </ScrollView>
+</SafeAreaView>
+);};*/
+
+export default App;
