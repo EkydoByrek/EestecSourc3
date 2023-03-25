@@ -35,7 +35,6 @@ const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
 
-
   return (
     <CartProvider>
       <NavigationContainer>
