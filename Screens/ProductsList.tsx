@@ -11,59 +11,96 @@ import {
 } from 'react-native';
 import { TextInput } from 'react-native-gesture-handler';
 import { NavigationContainer } from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
 const DATA = [
   {
     id: 1,
-    title: 'First Item',
-    description: 'helo world',
-    image: require('../Images/bestButterfly.jpeg'),
-    price: 1,
-    review: 'amazing just amazing',
-    seller: 'jane Doe'
+    title: 'Cake',
+    description: 'I make custom made cakes!',
+    image: require('../images/cake.jpeg'),
+    price: 30,
+    review: 'best cake ever',
+    seller: 'Jana Milic'
   },
   {
     id: 2,
-    title: 'Second Item',
-    description: 'helo worldyyy',
-    image: require('../Images/bestButterfly.jpeg'),
-    price: 1,
-    review: 'amazing just amazing',
-    seller: 'jane Doe'},
+    title: 'Bag',
+    description: 'Well crafted custom bags',
+    image: require('../images/bag.jpeg'),
+    price: 50,
+    review: 'i dont like the zipper',
+    seller: 'Jake Jacob'
+  },
   {
     id: 3,
-    title: 'Third Item',
-    description: 'helo wor',
-    image: require('../Images/bestButterfly.jpeg'),
-    price: 1,
+    title: 'Tea',
+    description: 'Hand picked mint tea',
+    image: require('../images/tea.jpeg'),
+    price: 5,
+    review: 'its good queality',
+    seller: 'Jana Milic'
+  },
+  {
+    id: 4,
+    title: 'Earings',
+    description: 'Diamong Earings!',
+    image: require('../images/jewerly.jpg'),
+    price: 100,
+    review: 'Definitely not diamons',
+    seller: 'Mila Kunic'
+  },
+  {
+    id: 5,
+    title: 'Dress',
+    description: 'Hand knitted dress',
+    image: require('../images/dress.jpeg'),
+    price: 100,
+    review: 'good quality, would recommend',
+    seller: 'Jake Jacobs'
+  },
+  {
+    id: 6,
+    title: 'Wall art',
+    description: 'I am an independent artist.',
+    image: require('../images/are.jpeg'),
+    price: 500,
+    review: 'it took realy long time',
+    seller: 'Mary'
+  },
+  {
+    id: 7,
+    title: 'Butterfly',
+    description: 'Pretty butterfly',
+    image: require('../images/bestButterfly.jpeg'),
+    price: 33,
     review: 'amazing just amazing',
-    seller: 'jane Doe'},
-];
+    seller: 'Mary'
+  },];
 
 
-export function getProducts(){
+export function getProducts() {
   return DATA;
 }
 
 //geting product by id
-export function getProduct(id){
-  return DATA.find((product)=>product.id ==id);
+export function getProduct(id) {
+  return DATA.find((product) => product.id == id);
 }
 
 
-const imageC=require('../Images/ShoppingCart.png');
+const imageC = require('../Images/ShoppingCart.png');
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
   <TouchableOpacity onPress={onPress} style={[styles.item, { backgroundColor }]}>
     <View style={styles.otherContainer}>
       <Text style={[styles.title, { color: textColor }]}>{item.title}</Text><Text style={[styles.rightText, { color: textColor }]}> $ {item.price}</Text>
     </View>
     <Text style={{ color: textColor }}>{item.description}</Text>
-    <Image source={item.image} />
+    <Image source={item.image} style={{ width: 100, height: 100 }} />
   </TouchableOpacity>
 );
 
-const ProductsList = ({navigation,route})=>{
+const ProductsList = ({ navigation, route }) => {
   const [selectedId, setSelectedId] = useState();
   const [input, setInput] = useState("");
   console.log(input)
@@ -76,8 +113,10 @@ const ProductsList = ({navigation,route})=>{
       return (
         <Item
           item={item}
-          onPress={() =>{ setSelectedId(item.id);
-          navigation.navigate('ProductDetails',{productId:item.id});}}
+          onPress={() => {
+            setSelectedId(item.id);
+            navigation.navigate('ProductDetails', { productId: item.id });
+          }}
           backgroundColor={backgroundColor}
           textColor={color}
         />
@@ -100,9 +139,9 @@ const ProductsList = ({navigation,route})=>{
     <SafeAreaView style={styles.container}>
       <View style={styles.otherContainer}>
         <TextInput value={input} onChangeText={(text) => setInput(text)} style={styles.search} placeholder="search" />
-        <TouchableOpacity onPress={()=>{navigation.navigate('Cart')}}>
+        <TouchableOpacity onPress={() => { navigation.navigate('Cart') }}>
           <View style={styles.cart}>
-            <Image  source={imageC} style={{ width: 30, height: 30}}/>
+            <Image source={imageC} style={{ width: 30, height: 30 }} />
           </View>
         </TouchableOpacity>
       </View>

@@ -62,7 +62,7 @@ const LoginScreen:({navigation,route})=>Node=({navigation,route})=>{
     <SafeAreaView >
 
     <Section title="Shopping App Sourc3" >
-        Amazon's fog bestseller 2023
+       Handmade bestseller 2023 
       </Section>
       <View style={{alignItems: 'center'}}>
       <Image source={image} style={{ width: 200, height: 200}}/>
