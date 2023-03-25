@@ -3,7 +3,7 @@ import type {Node} from 'react';
 import { NavigationContainer } from '@react-navigation/native';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {auth} from '../config/firebase';
-import {createUserWithEmailAndPassword} from "firebase/auth";
+import {signInWithEmailAndPassword,signOut} from "firebase/auth";
 import { useState } from 'react';
 import {
     SafeAreaView,
@@ -16,7 +16,8 @@ import {
     Button,
     Image,
     Input,
-    TextInput
+    TextInput,
+    Alert
   } from 'react-native';
 
   const LoginInput:({navigation,route})=>Node=({navigation,route})=>{
@@ -26,23 +27,41 @@ import {
 
 
     const SignIn=async ()=>{
-        await createUserWithEmailAndPassword(auth,email,password);
+        
+        await signInWithEmailAndPassword(auth,email,password)
+        .then((userCred)=>{
+                const user=userCred.user;
+                navigation.navigate('MainMenu');
+        }).catch((error)=>{
+            alert(error.message);
 
-
+        })
+    };
+    const LogOut=async()=>{
+        await signOut(auth);
+        navigation.navigate('LoginScreen');
     };
     return(
     <SafeAreaView>
     <View style={styles.InputBox}>
-    <TextInput placeholder="Username"style={styles.input} onChange={(e)=>setEmail(e.target.value)}    />
+    <TextInput placeholder="Username"style={styles.input} onChangeText={(text)=>setEmail(text)} value={email}    />
     </View>
 
     <View style={styles.InputBox}>
-    <TextInput placeholder="Password" style={styles.input} onChange={(e)=>setPassword(e.target.value)}/>
+    <TextInput secureTextEntry placeholder="Password" style={styles.input} onChangeText={(text)=>setPassword(text)} value={password}/>
     </View>
     <View style={styles.Button}> 
     <Button title="Login" color='pink'
     onPress={() =>
-        navigation.navigate('MainMenu')}/>
+        {SignIn()
+        }}/>
+    </View>
+     <View style={styles.Button}> 
+    <Button title="Log out" color='maroon'
+    onPress={() =>
+        LogOut()}
+        // navigation.navigate('MainMenu')}
+        />
     </View>
     <View style={styles.Button}> 
     <Button title="Guest Login" color='maroon'
@@ -51,6 +70,8 @@ import {
         // navigation.navigate('MainMenu')}
         />
     </View>
+
+    
     </SafeAreaView>
   );};
 
