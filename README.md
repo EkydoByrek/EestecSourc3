@@ -18,6 +18,9 @@ svoju kupovinu.
 
 Prilikom odabira da li zelimo kupovati ili prodavati mozemo odabrait i da zelimo prodavati neke proizvode klikom na dugmic SELL dolazimo do forme u kojoj mozemo dodati ime, opis i cijenu. Zamislili smo da u ovom dijelu implementiramo koristenje kamere ali to nismo uspjeli.
 
+## Shopping App
+Ideja je da na ovoj aplikaciji korisnici mogu kupovati i prodavati rucnoradjene predemete.
+
 ## Napomena
 U zadnjim radovima na aplikaciji stvoren je drugi direktorij za slikom pod imenom images dok je uporedno postojao Images. Uzimajući u obzir da je linux case sensitive a windows nije svaki path  i sve slike su prebacene u Images ali je folder pod imenom images ostavljen iz sigurnosti.
 
