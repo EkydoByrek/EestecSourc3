@@ -1,11 +1,3 @@
-/**
- * Sample React Native App
- * https://github.com/facebook/react-native
- *
- * @format
- * @flow strict-local
- */
-
 import React from 'react';
 import type {Node} from 'react';
 import {
@@ -18,6 +10,8 @@ import {
   View,
 } from 'react-native';
 
+import { NavigationContainer } from '@react-navigation/native';
+import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   Colors,
   DebugInstructions,
@@ -26,86 +20,71 @@ import {
   ReloadInstructions,
 } from 'react-native/Libraries/NewAppScreen';
 
-const Section = ({children, title}): Node => {
-  const isDarkMode = useColorScheme() === 'dark';
-  return (
-    <View style={styles.sectionContainer}>
-      <Text
-        style={[
-          styles.sectionTitle,
-          {
-            color: isDarkMode ? Colors.white : Colors.black,
-          },
-        ]}>
-        {title}
-      </Text>
-      <Text
-        style={[
-          styles.sectionDescription,
-          {
-            color: isDarkMode ? Colors.light : Colors.dark,
-          },
-        ]}>
-        {children}
-      </Text>
-    </View>
-  );
-};
+import LoginScreen from './Screens/LoginScreen';
+import LoginInput from './Screens/LoginInput';
+import MainMenu from './Screens/MainMenu';
+import SignUp from './Screens/SignUp';
+import CustomerSupport from './Screens/CustomerSupport';
+import ProductDetails from './Screens/ProductDetails';
+import ProductsList from './Screens/ProductsList';
+
+const Stack = createNativeStackNavigator();
 
 const App: () => Node = () => {
-  const isDarkMode = useColorScheme() === 'dark';
 
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
 
   return (
-    <SafeAreaView style={backgroundStyle}>
-      <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <ScrollView
-        contentInsetAdjustmentBehavior="automatic"
-        style={backgroundStyle}>
-        <Header />
-        <View
-          style={{
-            backgroundColor: isDarkMode ? Colors.black : Colors.white,
-          }}>
-          <Section title="WOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOOoo">
-            Yeahh baby thats what Im talking about 
-          </Section>
-          <Section title="THats why hes the goaaat">
-            THE GOAAAAAT
-          </Section>
-          <Section title="Debug">
-            <DebugInstructions />
-          </Section>
-          <Section title="Learn More">
-            Read the docs to discover what to do next:
-          </Section>
-          <LearnMoreLinks />
-        </View>
-      </ScrollView>
-    </SafeAreaView>
+    <NavigationContainer> 
+      <Stack.Navigator>
+        <Stack.Screen
+        name='LoginScreen'
+        component={LoginScreen}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen 
+        name='LoginInput'
+        component={LoginInput}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen 
+        name='MainMenu'
+        component={MainMenu}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='SignUp'
+        component={SignUp}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='CustomerSupport'
+        component={CustomerSupport}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='ProductDetails'
+        component={ProductDetails}
+        options={{ headerTitle: '' }}/>
+        <Stack.Screen
+        name='ProductsList'
+        component={ProductsList}
+        options={{ headerTitle: '' }}
+        />
+      </Stack.Navigator>
+    </NavigationContainer>
   );
+  
 };
 
-const styles = StyleSheet.create({
-  sectionContainer: {
-    marginTop: 40,
-    paddingHorizontal: 24,
-  },
-  sectionTitle: {
-    fontSize: 24,
-    fontWeight: '600',
-  },
-  sectionDescription: {
-    marginTop: 8,
-    fontSize: 18,
-    fontWeight: '400',
-  },
-  highlight: {
-    fontWeight: '700',
-  },
-});
+/*const FrontPage:()=>Node=({navigation})=>{
+  return(
+  <SafeAreaView style={backgroundStyle}>
+  <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
+  <ScrollView
+    contentInsetAdjustmentBehavior="automatic"
+    style={backgroundStyle}>
+    <View
+      style={{
+        backgroundColor: isDarkMode ? Colors.black : Colors.white,
+      }}>
+    </View>
+  </ScrollView>
+</SafeAreaView>
+);};*/
 
 export default App;
