@@ -20,6 +20,8 @@ const DATA = [
     description: 'helo world',
     image: require('../Images/bestButterfly.jpeg'),
     price: 1,
+    review: 'amazing just amazing',
+    seller: 'jane Doe'
   },
   {
     id: 2,
@@ -27,15 +29,28 @@ const DATA = [
     description: 'helo world',
     image: require('../Images/bestButterfly.jpeg'),
     price: 1,
-  },
+    review: 'amazing just amazing',
+    seller: 'jane Doe'},
   {
     id: 3,
     title: 'Third Item',
     description: 'helo world',
     image: require('../Images/bestButterfly.jpeg'),
     price: 1,
-  },
+    review: 'amazing just amazing',
+    seller: 'jane Doe'},
 ];
+
+
+export function getProducts(){
+  return DATA;
+}
+
+//geting product by id
+export function getProduct(id){
+  return DATA.find((product)=>product.id ==id);
+}
+
 
 const imageC=require('../Images/ShoppingCart.png');
 const Item = ({ item, onPress, backgroundColor, textColor }) => (
@@ -62,7 +77,7 @@ const ProductsList = ({navigation,route})=>{
         <Item
           item={item}
           onPress={() =>{ setSelectedId(item.id);
-          navigation.navigate('ProductDetails');}}
+          navigation.navigate('ProductDetails',{productId:item.id});}}
           backgroundColor={backgroundColor}
           textColor={color}
         />
@@ -85,7 +100,7 @@ const ProductsList = ({navigation,route})=>{
     <SafeAreaView style={styles.container}>
       <View style={styles.otherContainer}>
         <TextInput value={input} onChangeText={(text) => setInput(text)} style={styles.search} placeholder="search" />
-        <TouchableOpacity>
+        <TouchableOpacity onPress={()=>{navigation.navigate('Cart')}}>
           <View style={styles.cart}>
             <Image  source={imageC} style={{ width: 30, height: 30}}/>
           </View>
