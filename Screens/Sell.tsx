@@ -30,20 +30,22 @@ const Sell = ({ navigation, route }) => {
                 <TextInput style={styles.InputBox} placeholder="Description" />
             </View>
 
-            <View style={{flexDirection: 'row', justifyContnt: 'space-between'}}>
-                <View style={{ paddingVertical: 10, paddingHorizontal: 20 ,flexDirection: 'row'}}>
-                    <TextInput style={styles.Price} placeholder="Price" />
-
-                    <View style={[styles.Button,styles.addWrapper]}>
-                        <Button title="Post" color='maroon'
-                            onPress={() => {
-                                navigation.navigate('MainMenu');
-                                Alert.alert('Item successfully posted !');
-                            }} />
-                    </View>
-
-                </View>
+            <View style={{flexDirection: 'row', justifyContent: 'space-between', paddingHorizontal: 20, flex: 1}}>
+            <View style={{ flexDirection: 'row' }}>
+             <TextInput style={styles.Price} placeholder="Price" />
             </View>
+            <View style={styles.Button}>
+            <Button
+                title="Post"
+                color="maroon"
+                onPress={() => {
+                    navigation.navigate('MainMenu');
+                    Alert.alert('Item successfully posted !');
+                }}
+                />
+            </View>
+            </View>
+
         </SafeAreaView>
 
     );
@@ -55,17 +57,18 @@ const styles = StyleSheet.create({
         paddingVertical: 15,
         paddingHorizontal: 20,
         height: 100,
-        fontColor: 'white',
         borderRadius: 10
     },
     Button: {
-        width: 90,
-        height: 70,
-        borderRadius: 10
+        width: 150,
+        height: 60,
+        borderRadius: 30,
+        overflow: 'hidden',
+        paddingVertical:1,
     },
     Price: {
         width: 90,
-        height: 70,
+        height: 50,
         backgroundColor: 'pink',
         borderRadius: 10,
         textAlign: 'center',

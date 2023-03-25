@@ -86,9 +86,7 @@ import {
         backgroundColor:"gray",
         height:50,
         color:'white',
-        textColor:'white',
         paddingVertical:10,
-        margineVertical:10,
     },
     Button:{
         paddingVertical:30,
