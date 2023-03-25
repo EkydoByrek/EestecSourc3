@@ -1,10 +1,13 @@
 # EestecSourc3 Shopping App Source3
 
-Aplikaciju mozemo pokrenuti nakon sto kolniramo Repository tako sto uradimo npm install, potrebno je koristit node verziju ....
+## Set Up
 
-Nakon sto uradimo npm install trebamo pokrenuti server sa npm start i svoj emulator u drugom terminalu sa npm start android komandom.
-Dodatno jedan od načina pokretanja koda jeste  preko Android Studio aplikacije. Simuliramo ili preko USB-a povezujemo telefon sa računarom te u terminalu dok se nalazimo u direktoriju sa android file-ovima koristimo komandu npx react-native run-android.
+Kako bi mogli pokrenuti aplikaciju potrebno je imati npm, verzija noda koja je koristena je v16.19.0. Osim toga potrebno je globalno instalirati ReactNativeCLI (npm install -g react-native-cli). 
+Nakon kolniranja repozitorija potrebno je uraditi npm install. 
 
+
+Nakon sto uradimo npm install trebamo pokrenuti server sa *** npm run android *** ili *** npm start *** i svoj emulator u drugom terminalu sa *** npm start android *** komandom.
+Dodatno jedan od načina pokretanja koda jeste  preko Android Studio aplikacije. Simuliramo ili preko USB-a povezujemo telefon sa računarom te u terminalu dok se nalazimo u direktoriju sa android file-ovima koristimo komandu *** npx react-native run-android ***.
 
 ## Funkcionalnosti Aplikacije
 Nakon sto se aplikacija ucita vidjeti cemo Prvi Screen koji cemo vidjeti je Log IN or Sign UP. Ukoliko prvi put koristimo aplikaciju mozemo dodati novog usera
