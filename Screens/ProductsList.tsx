@@ -18,7 +18,7 @@ const DATA = [
     id: 1,
     title: 'Cake',
     description: 'I make custom made cakes!',
-    image: require('../images/cake.jpeg'),
+    image: require('../Images/cake.jpeg'),
     price: 30,
     review: 'best cake ever',
     seller: 'Jana Milic'
@@ -27,7 +27,7 @@ const DATA = [
     id: 2,
     title: 'Bag',
     description: 'Well crafted custom bags',
-    image: require('../images/bag.jpeg'),
+    image: require('../Images/bag.jpeg'),
     price: 50,
     review: 'i dont like the zipper',
     seller: 'Jake Jacob'
@@ -36,7 +36,7 @@ const DATA = [
     id: 3,
     title: 'Tea',
     description: 'Hand picked mint tea',
-    image: require('../images/tea.jpeg'),
+    image: require('../Images/tea.jpeg'),
     price: 5,
     review: 'its good queality',
     seller: 'Jana Milic'
@@ -45,7 +45,7 @@ const DATA = [
     id: 4,
     title: 'Earings',
     description: 'Diamong Earings!',
-    image: require('../images/jewerly.jpg'),
+    image: require('../Images/jewerly.jpg'),
     price: 100,
     review: 'Definitely not diamons',
     seller: 'Mila Kunic'
@@ -54,7 +54,7 @@ const DATA = [
     id: 5,
     title: 'Dress',
     description: 'Hand knitted dress',
-    image: require('../images/dress.jpeg'),
+    image: require('../Images/dress.jpeg'),
     price: 100,
     review: 'good quality, would recommend',
     seller: 'Jake Jacobs'
@@ -63,7 +63,7 @@ const DATA = [
     id: 6,
     title: 'Wall art',
     description: 'I am an independent artist.',
-    image: require('../images/are.jpeg'),
+    image: require('../Images/are.jpeg'),
     price: 500,
     review: 'it took realy long time',
     seller: 'Mary'
@@ -72,7 +72,7 @@ const DATA = [
     id: 7,
     title: 'Butterfly',
     description: 'Pretty butterfly',
-    image: require('../images/bestButterfly.jpeg'),
+    image: require('../Images/bestButterfly.jpeg'),
     price: 33,
     review: 'amazing just amazing',
     seller: 'Mary'
