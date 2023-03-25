@@ -1,22 +1,12 @@
 import React from 'react';
-//import ShoppingLogo from "ShoppingLogo.png";
 import type {Node} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import LoginInput from './LoginInput';
 import {
     Colors,
-    DebugInstructions,
-    Header,
-    LearnMoreLinks,
-    ReloadInstructions,
+
   } from 'react-native/Libraries/NewAppScreen';
 
 import {
     SafeAreaView,
-    ScrollView,
-    StatusBar,
     StyleSheet,
     Text,
     useColorScheme,

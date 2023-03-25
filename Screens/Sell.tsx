@@ -1,27 +1,23 @@
 import React from 'react';
-import type { Node } from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
+
 import {
     SafeAreaView,
-    ScrollView,
-    StatusBar,
     StyleSheet,
     Text,
-    useColorScheme,
     View,
     Button,
-    Image,
-    Input,
     Alert,
+    Image,
     TextInput
 } from 'react-native';
+
+const image=require('../Images/ClearItem.png');
 
 const Sell = ({ navigation, route }) => {
     return (
         <SafeAreaView>
-            <View style={{ paddingVertical: 100, paddingHorizontal: 20 }}>
-                <Text>**** treba ovdje dodati nacin da se ubaci slika ***</Text>
+            <View style={{ paddingVertical: 100, paddingHorizontal: 20,alignItems: 'center' }}>
+                <Image source={image} style={{ width: 130, height: 130}}/>
             </View>
             <View style={{ paddingVertical: 10, paddingHorizontal: 20 }}>
                 <TextInput style={styles.InputBox} placeholder="Name of Item you want to sell" />

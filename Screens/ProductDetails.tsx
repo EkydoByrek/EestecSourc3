@@ -1,20 +1,14 @@
 import React, { useState, ReactElement, useEffect,useContext } from 'react';
-// import { SafeAreaView, Text, Image, View } from 'react-native-safe-area-context';
 import { Alert, View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import ProductsList from './ProductsList';
 import { getProduct } from './ProductsList';
 import { cartContext } from '../components/CartContext';
-import CustomerSupport from './CustomerSupport';
 
 
 
 
 const ProductDetails = ({ navigation, route }) => {
-// const ProductDetails: ({ navigation, route }: { navigation: any, route: any }) => ReactElement = ({ navigation, route }) => {
 
     const {addItemToCart} = useContext(cartContext);
 

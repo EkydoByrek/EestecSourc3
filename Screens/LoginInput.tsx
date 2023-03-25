@@ -1,23 +1,14 @@
 import React from 'react';
 import type {Node} from 'react';
-import { NavigationContainer } from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {auth} from '../config/firebase';
 import {signInWithEmailAndPassword,signOut} from "firebase/auth";
 import { useState } from 'react';
 import {
     SafeAreaView,
-    ScrollView,
-    StatusBar,
     StyleSheet,
-    Text,
-    useColorScheme,
     View,
     Button,
-    Image,
-    Input,
     TextInput,
-    Alert
   } from 'react-native';
 
   const LoginInput:({navigation,route})=>Node=({navigation,route})=>{
@@ -44,7 +35,7 @@ import {
     return(
     <SafeAreaView>
     <View style={styles.InputBox}>
-    <TextInput placeholder="Username"style={styles.input} onChangeText={(text)=>setEmail(text)} value={email}    />
+    <TextInput placeholder="Email"style={styles.input} onChangeText={(text)=>setEmail(text)} value={email}    />
     </View>
 
     <View style={styles.InputBox}>
@@ -60,7 +51,6 @@ import {
     <Button title="Log out" color='maroon'
     onPress={() =>
         LogOut()}
-        // navigation.navigate('MainMenu')}
         />
     </View>
     <View style={styles.Button}> 
