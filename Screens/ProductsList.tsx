@@ -26,7 +26,7 @@ const DATA = [
   {
     id: 2,
     title: 'Second Item',
-    description: 'helo world',
+    description: 'helo worldyyy',
     image: require('../Images/bestButterfly.jpeg'),
     price: 1,
     review: 'amazing just amazing',
@@ -34,7 +34,7 @@ const DATA = [
   {
     id: 3,
     title: 'Third Item',
-    description: 'helo world',
+    description: 'helo wor',
     image: require('../Images/bestButterfly.jpeg'),
     price: 1,
     review: 'amazing just amazing',
