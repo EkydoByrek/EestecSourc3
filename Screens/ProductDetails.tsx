@@ -1,23 +1,34 @@
-import React, { useState,ReactElement } from 'react';
+import React, { useState, ReactElement, useEffect,useContext } from 'react';
 // import { SafeAreaView, Text, Image, View } from 'react-native-safe-area-context';
 import { View, Text, Image, Button, StyleSheet, TouchableOpacity } from 'react-native';
 import { ScrollView } from 'react-native-gesture-handler';
 import { SafeAreaView } from 'react-native-safe-area-context';
 import { NavigationContainer } from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
+import { createNativeStackNavigator } from '@react-navigation/native-stack';
+import ProductsList from './ProductsList';
+import { getProduct } from './ProductsList';
+import { cartContext } from '../components/CartContext';
 
-const product =
-{
-    id: 1,
-    title: 'First Item',
-    description: 'helo world',
-    image: require('../Images/bestButterfly.jpeg'),
-    price: 1,
-    review: 'best thing ever lkdflkad',
-    seller: 'janey doe'
-}
 
-const ProductDetails: ({ navigation, route }: { navigation: any, route: any }) => ReactElement = ({ navigation, route }) => {
+
+
+
+const ProductDetails = ({ navigation, route }) => {
+// const ProductDetails: ({ navigation, route }: { navigation: any, route: any }) => ReactElement = ({ navigation, route }) => {
+
+    const {addItemToCart} = useContext(cartContext);
+
+
+    const { productId } = route.params;
+    const [product, setProduct] = useState({});
+
+    useEffect(() => {
+        setProduct(getProduct(productId))
+    })
+
+    function onAddToCart(){
+        addItemToCart(productId);
+    }
     return (
         <SafeAreaView style={{ backgroundColor: 'white', flex: 1 }}>
             <ScrollView>
@@ -26,7 +37,7 @@ const ProductDetails: ({ navigation, route }: { navigation: any, route: any }) =
                     <Text style={styles.name}>{product.title}</Text>
                     <Text style={styles.price}>$ {product.price}</Text>
                     <Text style={styles.description}>{product.description}</Text>
-                    <Button title="Add to Cart" />
+                    <Button onPress={onAddToCart} title="Add to Cart" />
                 </View>
 
                 <View style={styles.otherContainer}>
