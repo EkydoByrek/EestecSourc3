@@ -31,7 +31,7 @@ const DATA = [
   {
     id: 3,
     title: 'Third Item',
-    description: 'helo world',
+    description: 'helo wor',
     image: require('../Images/bestButterfly.jpeg'),
     price: 1,
   },
