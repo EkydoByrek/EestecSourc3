@@ -29,6 +29,7 @@ import ProductDetails from './Screens/ProductDetails';
 import ProductsList from './Screens/ProductsList';
 import { CartProvider } from './components/CartContext';
 import Cart from './Screens/Cart';
+import Sell from './Screens/Sell';
 
 const Stack = createNativeStackNavigator();
 
@@ -71,6 +72,11 @@ const App: () => Node = () => {
           <Stack.Screen
             name='Cart'
             component={Cart}
+            options={{ headerTitle: '' }}
+          />
+          <Stack.Screen
+            name='Sell'
+            component={Sell}
             options={{ headerTitle: '' }}
           />
         </Stack.Navigator>

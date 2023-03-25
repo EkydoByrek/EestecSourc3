@@ -66,8 +66,7 @@ import {
     <View style={styles.Button}> 
     <Button title="Guest Login" color='maroon'
     onPress={() =>
-        SignIn()}
-        // navigation.navigate('MainMenu')}
+        navigation.navigate('MainMenu')}
         />
     </View>
 

@@ -50,11 +50,11 @@ import {
     </View>
 
     <View style={styles.InputBox}>
-    <TextInput placeholder="Choose Password" style={styles.boxes}onChangeText={(text)=>setPassword(text)} value={password} />
+    <TextInput secureTextEntry placeholder="Choose Password" style={styles.boxes}onChangeText={(text)=>setPassword(text)} value={password} />
     </View>
 
     <View style={styles.InputBox}>
-    <TextInput placeholder="Confirm Password" style={styles.boxes}onChangeText={(text)=>setCPassword(text)} value={cPassword} />
+    <TextInput secureTextEntry placeholder="Confirm Password" style={styles.boxes}onChangeText={(text)=>setCPassword(text)} value={cPassword} />
     </View>
 
     <View style={styles.Button}>

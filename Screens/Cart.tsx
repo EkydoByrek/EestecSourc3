@@ -4,8 +4,22 @@ import { cartContext } from "../components/CartContext";
 // import { cartContext } from "../CartContext";
 
 const Cart= ({ navigation, route }) => {
-// export function Cart({navigation}){
     let {items,getItemsCount,getTotalPrice} =useContext(cartContext);
+
+	function Checkout(){
+		return Alert.alert(
+			"Are u sure",
+			[
+				{
+					text: "YES",
+					onPress:()=>{
+						navigation.popToTop();
+					}
+				},
+				{text: "NO"}
+			]
+		)
+	}
 
     function Totals(){
         let [total,setTotal]=useState(0);
@@ -35,7 +49,7 @@ const Cart= ({ navigation, route }) => {
                 <Text style={[styles.lineLeft,styles.lineTotal]}>Total </Text>
                 <Text style={styles.mainTotal}>$ {total}</Text>
 		        </View>
-				<Button title="BUY" style={styles.buttonStyle} onPress={()=>emptyCart()}></Button>
+				<Button title="BUY" style={styles.buttonStyle} onPress={()=>Checkout()}></Button>
 				</>
         )
 
@@ -45,9 +59,8 @@ const Cart= ({ navigation, route }) => {
             <>
             <View style={styles.cartLine}>
                 <Image style={styles.image} source={item.product.image}/>
-                <Text style={styles.lineLeft}>{item.product.name} x {item.qty}
+                <Text style={styles.lineLeft}>{item.product.title} x {item.qty}
                 <Text style={styles.productTotal}> $ {item.totalPrice}</Text></Text>
-				
             </View>
             </>
         )
