@@ -29,8 +29,7 @@ import {
         </View>
         <View style={styles.Button}>
             <Button title="Sell" color="pink"
-            //temporary connection to ProductDetails site for testing
-            onPress={() =>navigation.navigate('ProductDetails')}/>
+            onPress={() =>navigation.navigate('Sell')}/>
         </View>
         <View style={{alignItems: 'center'}}>
             <Image source={image2} style={{ width: 130, height: 130}}/>
