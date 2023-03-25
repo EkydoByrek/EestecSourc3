@@ -6,50 +6,30 @@ import { cartContext } from "../components/CartContext";
 const Cart= ({ navigation, route }) => {
     let {items,getItemsCount,getTotalPrice} =useContext(cartContext);
 
-	function Checkout(){
-		return Alert.alert(
-			"Are u sure",
-			[
-				{
-					text: "YES",
-					onPress:()=>{
-						navigation.popToTop();
-					}
-				},
-				{text: "NO"}
-			]
-		)
-	}
+
+	const checkout= () =>
+    Alert.alert('Are u sure u want to Buy', 'Press ok', [
+      {
+        text: 'Cancel',
+        style: 'cancel',
+      },
+      {text: 'OK', },
+    ]);
+
 
     function Totals(){
         let [total,setTotal]=useState(0);
         useEffect(()=>{
             setTotal(getTotalPrice())
         })
-		const emptyCart=()=>{
-			return Alert.alert(
-				"Are you sure",
-				"GIB MONEY",
-				[
-					{
-						text:"OKIE",
-						onPress:()=>{
-							navigation.popToTop();
-						}
-					},
-					{text:"NO >:("}
-
-				]
-
-			)
-		}
+	
         return(
 			<>
             <View style={styles.cartLineTotal}>
                 <Text style={[styles.lineLeft,styles.lineTotal]}>Total </Text>
                 <Text style={styles.mainTotal}>$ {total}</Text>
 		        </View>
-				<Button title="BUY" style={styles.buttonStyle} onPress={()=>Checkout()}></Button>
+				<Button title="BUY" style={styles.buttonStyle} onPress={()=>checkout()}></Button>
 				</>
         )
 

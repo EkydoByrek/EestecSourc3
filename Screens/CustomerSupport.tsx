@@ -18,6 +18,9 @@ import {
   } from 'react-native';
 
   const CustomerSupport:({navigation,route})=>Node=({navigation,route})=>{
+    const send=()=>{
+        Alert.alert('Your input was sent!');
+    }
     return(
         <SafeAreaView>
             <View>
@@ -27,7 +30,7 @@ import {
             <TextInput style={styles.InputBox}/>
             </View>
             <View style={styles.Button}>
-            <Button title="Send" color="maroon"/>
+            <Button title="Send" color="maroon" onPress={()=>send()}/>
             </View>
         
         </SafeAreaView>
