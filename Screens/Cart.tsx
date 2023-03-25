@@ -1,10 +1,12 @@
 import React, {useEffect,useState, useContext} from "react";
 import {View, Image, Text,Button, FlatList,StyleSheet,Alert} from 'react-native';
 import { cartContext } from "../components/CartContext";
-// import { cartContext } from "../CartContext";
+// import {clearCart } from '../components/CartContext'
 
 const Cart= ({ navigation, route }) => {
     let {items,getItemsCount,getTotalPrice} =useContext(cartContext);
+
+	const {clearCart} =useContext(cartContext);
 
 
 	const checkout= () =>
@@ -16,6 +18,9 @@ const Cart= ({ navigation, route }) => {
       {text: 'OK', },
     ]);
 
+	const clear=()=>{
+		clearCart();
+	}
 
     function Totals(){
         let [total,setTotal]=useState(0);
@@ -30,7 +35,8 @@ const Cart= ({ navigation, route }) => {
                 <Text style={styles.mainTotal}>$ {total}</Text>
 		        </View>
 				<Button title="BUY" style={styles.buttonStyle} onPress={()=>checkout()}></Button>
-				</>
+				<Button title="Clear Cart" style={styles.buttonStyle} onPress={()=>clear()}></Button>
+					</>
         )
 
     }
